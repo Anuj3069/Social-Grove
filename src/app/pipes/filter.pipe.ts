@@ -10,14 +10,12 @@ export class FilterPipe implements PipeTransform {
       return user;
     }
 
-    const User =[];
-    for(const value of user){
-      if(value['name']===searchValue){
-        User.push(value);
-      }
+    return user.filter((lock:any) => {
+      return (lock.name.toUpperCase().match(searchValue.toUpperCase()));
+    });
     }
-    return User;
+   
    
   }
 
-}
+
